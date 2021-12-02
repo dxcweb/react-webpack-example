@@ -1,22 +1,23 @@
 {
-    "presets": [
-      [
-        "@babel/preset-env",
-        {
-          "useBuiltIns": "entry",
-          "corejs": "3.16",
-          "bugfixes": true
-        }
-      ],
-      [
-        "@babel/preset-react",
-        {
-          "runtime": "automatic"
-        }
-      ]
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "useBuiltIns": "entry",
+        "corejs": "3.16",
+        "bugfixes": true
+      }
     ],
-    "plugins": [
-      "@babel/plugin-proposal-export-default-from",
-      ["@babel/plugin-proposal-decorators", { "legacy": true }],
+    [
+      "@babel/preset-react",
+      {
+        "runtime": "automatic"
+      }
     ]
+  ],
+  "plugins": [
+    "@babel/plugin-proposal-export-default-from",
+    ["@babel/plugin-proposal-decorators", { "legacy": true }],
+    "@babel/plugin-transform-runtime"
+  ]
 }

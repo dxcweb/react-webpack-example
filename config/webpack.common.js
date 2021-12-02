@@ -3,15 +3,22 @@ const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 // const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
+const dotenv = require("dotenv");
+dotenv.config("./env");
 
 const devMode = process.env.NODE_ENV !== "production";
-
 module.exports = {
   entry: {
     index: "./src/index.js",
   },
+  target: ["web", "es5"],
   output: {
     filename: "[name].[contenthash:8].js",
+    publicPath: devMode ? "/" : "https://ssl-static2.720static.com/",
+    environment: {
+      // 是否使用箭头函数
+      arrowFunction: false,
+    },
   },
   module: {
     rules: [
@@ -25,27 +32,38 @@ module.exports = {
       },
       {
         test: /\.(le|c)ss$/,
-        use: [devMode ? "style-loader" : MiniCssExtractPlugin.loader, "css-loader", "postcss-loader", "less-loader"],
-      },
-      {
-        test: /\.(png|jpe?g|gif|webp|ico)(\?.*)?$/,
+        exclude: /node_modules/,
         use: [
+          devMode ? "style-loader" : MiniCssExtractPlugin.loader,
           {
-            loader: "url-loader",
+            loader: "css-loader",
             options: {
-              limit: 10000,
-              name: "static/[name].[hash:8].[ext]",
-              esModule: false,
-              fallback: {
-                loader: "file-loader",
-                options: {
-                  name: "static/[name].[hash:8].[ext]",
-                  esModule: false,
-                },
+              importLoaders: 1,
+              modules: {
+                localIdentName: "[local]--[hash:base64:5]",
               },
             },
           },
+          // "postcss-loader",
+          "less-loader",
         ],
+      },
+      {
+        test: /\.(le|c)ss$/,
+        include: /node_modules/,
+        use: ["style-loader", "css-loader", "less-loader"],
+      },
+      {
+        test: /\.(png|jpg|jpeg|gif|mp3)$/,
+        use: {
+          loader: "url-loader",
+          options: {
+            limit: 10000000,
+            name: "static/[name].[hash:8].[ext]",
+            esModule: false,
+          },
+        },
+        type: "javascript/auto",
       },
     ],
   },
@@ -53,7 +71,7 @@ module.exports = {
     alias: {
       "@": path.resolve(__dirname, "../src"),
     },
-    extensions: [".js", ".jsx"],
+    extensions: [".web.js", ".js", ".jsx"],
   },
   performance: {
     hints: false,
@@ -62,8 +80,13 @@ module.exports = {
     colors: true,
   },
   plugins: [
+    new webpack.DefinePlugin({
+      "process.env": { ENV: `"${process.env.ENV}"` },
+    }),
     new HtmlWebpackPlugin({
+      inject: false,
       template: "./src/index.html",
+      scriptLoading: "blocking",
       //   filename: path.join(DIST_DIR, 'index.html'),
       //   favicon: './src/assets/favicon.ico',
     }),

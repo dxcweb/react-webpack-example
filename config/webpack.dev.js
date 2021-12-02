@@ -9,5 +9,9 @@ module.exports = merge(common, {
   stats: "minimal",
   //   devtool: 'source-map',
   devtool: "cheap-module-source-map",
-  plugins: [],
+
+  devServer: {
+    allowedHosts: "all",
+    port: 8000,
+  },
 });
