@@ -14,7 +14,7 @@ module.exports = {
   target: ["web", "es5"],
   output: {
     filename: "[name].[contenthash:8].js",
-    publicPath: devMode ? "/" : "https://ssl-static2.720static.com/",
+    publicPath: devMode ? "/" : "https://xxxx.com/",
     environment: {
       // 是否使用箭头函数
       arrowFunction: false,
@@ -32,7 +32,6 @@ module.exports = {
       },
       {
         test: /\.(le|c)ss$/,
-        exclude: /node_modules/,
         use: [
           devMode ? "style-loader" : MiniCssExtractPlugin.loader,
           {
@@ -44,14 +43,8 @@ module.exports = {
               },
             },
           },
-          // "postcss-loader",
           "less-loader",
         ],
-      },
-      {
-        test: /\.(le|c)ss$/,
-        include: /node_modules/,
-        use: ["style-loader", "css-loader", "less-loader"],
       },
       {
         test: /\.(png|jpg|jpeg|gif|mp3)$/,
