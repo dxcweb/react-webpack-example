@@ -12,6 +12,6 @@ module.exports = merge(common, {
 
   devServer: {
     allowedHosts: "all",
-    port: 8000,
+    port: 8888,
   },
 });
