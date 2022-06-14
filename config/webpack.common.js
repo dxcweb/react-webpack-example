@@ -28,6 +28,7 @@ module.exports = {
         loader: "babel-loader",
         options: {
           cacheDirectory: true,
+          plugins: [devMode && require.resolve("react-refresh/babel")].filter(Boolean),
         },
       },
       {

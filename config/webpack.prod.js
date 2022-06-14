@@ -11,14 +11,14 @@ module.exports = merge(common, {
 
   devtool: false,
   optimization: {
-    minimize:true,
+    minimize: true,
     minimizer: [
       new CssMinimizerPlugin({
         minimizerOptions: {
           preset: "default",
         },
       }),
-      new TerserPlugin()
+      new TerserPlugin(),
     ],
   },
   plugins: [
