@@ -8,6 +8,7 @@ module.exports = merge(common, {
   stats: "minimal",
   //   devtool: 'source-map',
   devtool: "cheap-module-source-map",
+  // devtool: "eval-cheap-source-map",
   devServer: {
     hot: true,
     historyApiFallback: true,
@@ -24,5 +25,5 @@ module.exports = merge(common, {
       },
     },
   },
-  plugins: [new ReactRefreshWebpackPlugin()],
+  plugins: [new webpack.HotModuleReplacementPlugin(), new ReactRefreshWebpackPlugin()],
 });
