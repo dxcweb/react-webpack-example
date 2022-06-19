@@ -3977,6 +3977,11 @@ klona@^2.0.4:
   resolved "https://registry.nlark.com/klona/download/klona-2.0.4.tgz#7bb1e3affb0cb8624547ef7e8f6708ea2e39dfc0"
   integrity sha1-e7Hjr/sMuGJFR+9+j2cI6i4538A=
 
+klona@^2.0.5:
+  version "2.0.5"
+  resolved "https://registry.npmmirror.com/klona/-/klona-2.0.5.tgz#d166574d90076395d9963aa7a928fabb8d76afbc"
+  integrity sha512-pJiBpiXMbt7dkzXe8Ghj/u4FfXOOa98fPW+bihOJ4SjnoijweJrNThJfd3ifXpXhREjpoF2mZVH1GfS9LV3kHQ==
+
 less-loader@^10.0.1:
   version "10.0.1"
   resolved "https://registry.nlark.com/less-loader/download/less-loader-10.0.1.tgz?cache=0&sync_timestamp=1625230463215&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fless-loader%2Fdownload%2Fless-loader-10.0.1.tgz#c05aaba68d00400820275f21c2ad87cb9fa9923f"
@@ -4818,14 +4823,14 @@ postcss-discard-overridden@^5.0.1:
   resolved "https://registry.nlark.com/postcss-discard-overridden/download/postcss-discard-overridden-5.0.1.tgz#454b41f707300b98109a75005ca4ab0ff2743ac6"
   integrity sha1-RUtB9wcwC5gQmnUAXKSrD/J0OsY=
 
-postcss-loader@^6.1.1:
-  version "6.1.1"
-  resolved "https://registry.nlark.com/postcss-loader/download/postcss-loader-6.1.1.tgz?cache=0&sync_timestamp=1625143047790&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fpostcss-loader%2Fdownload%2Fpostcss-loader-6.1.1.tgz#58dd0a3accd9bc87cc52eff75244db578d11301a"
-  integrity sha1-WN0KOszZvIfMUu/3UkTbV40RMBo=
+postcss-loader@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.npmmirror.com/postcss-loader/-/postcss-loader-7.0.0.tgz#367d10eb1c5f1d93700e6b399683a6dc7c3af396"
+  integrity sha512-IDyttebFzTSY6DI24KuHUcBjbAev1i+RyICoPEWcAstZsj03r533uMXtDn506l6/wlsRYiS5XBdx7TpccCsyUg==
   dependencies:
     cosmiconfig "^7.0.0"
-    klona "^2.0.4"
-    semver "^7.3.5"
+    klona "^2.0.5"
+    semver "^7.3.7"
 
 postcss-merge-longhand@^5.0.2:
   version "5.0.2"
@@ -5818,6 +5823,13 @@ semver@^7.3.5:
   version "7.3.5"
   resolved "https://registry.nlark.com/semver/download/semver-7.3.5.tgz?cache=0&sync_timestamp=1618846828850&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fsemver%2Fdownload%2Fsemver-7.3.5.tgz#0b621c879348d8998e4b0e4be94b3f12e6018ef7"
   integrity sha1-C2Ich5NI2JmOSw5L6Us/EuYBjvc=
+  dependencies:
+    lru-cache "^6.0.0"
+
+semver@^7.3.7:
+  version "7.3.7"
+  resolved "https://registry.npmmirror.com/semver/-/semver-7.3.7.tgz#12c5b649afdbf9049707796e22a4028814ce523f"
+  integrity sha512-QlYTucUYOews+WeEujDoEGziz4K6c47V/Bd+LjSSYcA94p+DmINdf7ncaUinThfvZyu13lN9OY1XDxt8C0Tw0g==
   dependencies:
     lru-cache "^6.0.0"
 

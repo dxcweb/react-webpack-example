@@ -2,6 +2,8 @@ const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+// webpack-manifest-plugin 生成文件清单 manifest.json
 // const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const dotenv = require("dotenv");
 dotenv.config("./env");
@@ -33,6 +35,7 @@ module.exports = {
       },
       {
         test: /\.(le|c)ss$/,
+        exclude: /node_modules/,
         use: [
           devMode ? "style-loader" : MiniCssExtractPlugin.loader,
           {
@@ -44,7 +47,25 @@ module.exports = {
               },
             },
           },
+          "postcss-loader",
           "less-loader",
+        ],
+      },
+      {
+        test: /\.(le|c)ss$/,
+        include: /node_modules/,
+        use: [
+          devMode ? "style-loader" : MiniCssExtractPlugin.loader,
+          "css-loader",
+          "postcss-loader",
+          {
+            loader: "less-loader",
+            options: {
+              lessOptions: {
+                javascriptEnabled: true,
+              },
+            },
+          },
         ],
       },
       {
@@ -52,7 +73,7 @@ module.exports = {
         use: {
           loader: "url-loader",
           options: {
-            limit: 10000000,
+            limit: 1024,
             name: "static/[name].[hash:8].[ext]",
             esModule: false,
           },

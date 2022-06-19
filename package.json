@@ -37,7 +37,7 @@
     "less": "^4.1.2",
     "less-loader": "^10.0.1",
     "mini-css-extract-plugin": "^2.3.0",
-    "postcss-loader": "^6.1.1",
+    "postcss-loader": "^7.0.0",
     "prettier": "^2.0.5",
     "react-refresh": "^0.13.0",
     "rimraf": "^3.0.2",
