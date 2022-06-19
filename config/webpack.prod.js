@@ -12,14 +12,7 @@ module.exports = merge(common, {
   devtool: false,
   optimization: {
     minimize: true,
-    minimizer: [
-      new CssMinimizerPlugin({
-        minimizerOptions: {
-          preset: "default",
-        },
-      }),
-      new TerserPlugin(),
-    ],
+    minimizer: [new CssMinimizerPlugin(), new TerserPlugin()],
   },
   plugins: [
     new MiniCssExtractPlugin({
